@@ -1,0 +1,19 @@
+# Python specific ignored files
+*.pyc
+__pycache__/
+.pytest_cache/
+.vscode/ # Optional, if you use VS Code and don't want to share its config
+
+# Virtual environment
+venv/ # This ignores your virtual environment directory
+
+# Environment variables (API keys and other secrets)
+.env
+*.env
+
+# Temporary or local testing files
+test_gemini.py
+test_spoonacular.py
+
+# Jupyter/Kaggle Notebook Checkpoints (if you use them)
+.ipynb_checkpoints/

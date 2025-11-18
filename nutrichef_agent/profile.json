@@ -1,0 +1,7 @@
+{
+    "katze": {
+      "meal_calorie_goal": 500,
+      "dietary_preferences": ["low-effort", "single-serving", "boneless"],
+      "dislikes": ["bitter gourd"]
+    }
+  }
