@@ -9,6 +9,7 @@ load_dotenv()
 SPOONACULAR_API_KEY = os.getenv("SPOONACULAR_API_KEY")
 
 LLM_MODEL_NAME = "gemini-2.5-flash-lite" # Or "gemini-1.5-flash" if you want to try it
+APP_NAME = "NUTRICHEF_AGENT"
 
 # retry_config needs to be defined if used in Agent init
 retry_config=types.HttpRetryOptions(

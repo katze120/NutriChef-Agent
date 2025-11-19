@@ -18,6 +18,7 @@ def search_recipes_by_ingredients(ingredients: str, number: int = 5, max_calorie
     Returns:
         A JSON list of recipes, each with 'id', 'title', 'image', 'usedIngredientCount', 'missedIngredientCount'.
     """
+    print("[FinderAgent] Searching for recipes..")
     url = f"{SPOONACULAR_BASE_URL}/recipes/findByIngredients"
     querystring = {
         "ingredients": ingredients,
@@ -27,12 +28,13 @@ def search_recipes_by_ingredients(ingredients: str, number: int = 5, max_calorie
     }
     if max_calories != 0:
         querystring["maxCalories"] = str(max_calories)
-
+    recipes = []
     response = requests.get(url, headers=SPOONACULAR_HEADERS, params=querystring)
     if response.status_code == 200:
         # Return just the essential data to save context window
-        return [{"id": r['id'], "title": r['title']} for r in response.json()]
-    return []
+        recipes = [{"id": r['id'], "title": r['title']} for r in response.json()]
+    print("[FinderAgent] Found recipes: ", recipes)
+    return recipes
 
 def get_recipe_information(recipe_ids: list[int]) -> list[dict]:
     """
@@ -42,10 +44,9 @@ def get_recipe_information(recipe_ids: list[int]) -> list[dict]:
     Returns:
         A JSON objects containing detailed recipe information, instructions, and nutrition.
     """
-
+    print("[NutritionistAgent] Searching for nutrition data..")
     nutrition_data = []
     for r_id in recipe_ids:
-        print("get_recipe_information for:", r_id)
 
         url = f"{SPOONACULAR_BASE_URL}/recipes/{r_id}/information"
         querystring = {"includeNutrition": "true"}
@@ -64,4 +65,5 @@ def get_recipe_information(recipe_ids: list[int]) -> list[dict]:
                 "link": data.get('sourceUrl'),
                 "full_data": data
             })
+    print("[NutritionistAgent] Enriched recipes with nutrition data: ", nutrition_data)
     return nutrition_data

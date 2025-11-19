@@ -1,0 +1,3 @@
+from nutrichef_agent.agents.interactive_nutrichef_agent import interactive_nutrichef_agent
+
+root_agent = interactive_nutrichef_agent
