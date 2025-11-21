@@ -17,3 +17,6 @@ test_spoonacular.py
 
 # Jupyter/Kaggle Notebook Checkpoints (if you use them)
 .ipynb_checkpoints/
+
+# Database
+nutrichef_agent_data.db

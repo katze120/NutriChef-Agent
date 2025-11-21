@@ -1,4 +1,4 @@
-from nutrichef_agent.agents.agent import root_agent
+from nutrichef_agent.agent import root_agent
 from google.adk.agents import Agent
 from google.adk.sessions import DatabaseSessionService
 from google.adk.memory import InMemoryMemoryService
