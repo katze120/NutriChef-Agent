@@ -22,8 +22,8 @@ async def main():
 
     queries = [
         "I have chicken and tomatos, need something under 500 calories, under 45 mins.",
-        "Is there any option with stronger flavour?",
-        "thanks bye",
+        "Make it 100 cal less, and I don't like basil",
+        "Thanks, bye!",
     ]
 
     for query in queries:

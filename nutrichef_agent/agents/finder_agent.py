@@ -1,11 +1,11 @@
-from google.adk.agents import Agent
+from google.adk.agents import LlmAgent
 from google.adk.models.google_llm import Gemini
 from nutrichef_agent.tools.spoonacular_tools import search_recipes
 from nutrichef_agent.config import retry_config
 from nutrichef_agent.config import LLM_MODEL_NAME
 
 # It takes the ingredients list and uses the tool to find raw recipes.
-finder_agent = Agent(
+finder_agent = LlmAgent(
     name="finder_agent",
     model=Gemini(
         model=LLM_MODEL_NAME,

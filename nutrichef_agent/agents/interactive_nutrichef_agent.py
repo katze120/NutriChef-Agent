@@ -1,7 +1,7 @@
 import json
 import logging
 import uuid
-from google.adk.agents import LlmAgent
+from google.adk.agents.llm_agent import LlmAgent
 from google.adk.models.google_llm import Gemini
 from google.adk.tools import preload_memory
 from nutrichef_agent.agents.nutrichef_pipeline_agent import nutrichef_pipeline_agent
@@ -9,7 +9,7 @@ from nutrichef_agent.config import retry_config
 from nutrichef_agent.config import LLM_MODEL_NAME
 from nutrichef_agent.agents.agent_utils import auto_save_to_memory
 
-
+# The core orchestrator which interacts with the user
 interactive_nutrichef_agent = LlmAgent(
     name="interactive_nutrichef_agent",
     model=Gemini(

@@ -1,4 +1,4 @@
-from google.adk.agents import Agent
+from google.adk.agents import LlmAgent
 from google.adk.models.google_llm import Gemini
 
 from nutrichef_agent.config import retry_config
@@ -6,7 +6,7 @@ from nutrichef_agent.config import LLM_MODEL_NAME
 from nutrichef_agent.tools.spoonacular_tools import get_recipe_information
 
 # It takes Recipe IDs and gets the hard nutritional facts.
-nutritionist_agent = Agent(
+nutritionist_agent = LlmAgent(
     name="nutritionist_agent",
     model=Gemini(
         model=LLM_MODEL_NAME,

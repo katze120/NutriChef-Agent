@@ -8,9 +8,9 @@ SPOONACULAR_HEADERS = {
     "x-rapidapi-host": "spoonacular-recipe-food-nutrition-v1.p.rapidapi.com"
 }
 
-def search_recipes(ingredients: str, method: str = "", number: int = 5, max_calories: int = 0) -> list[dict]:
+def search_recipes(ingredients: str, number: int = 5, max_calories: int = 0) -> list[dict]:
     """
-    Searches for recipes based on a list of ingredients AND an optional cooking method
+    Searches for recipes based on a list of ingredients
     using the Spoonacular complexSearch API for greater flexibility.
     Args:
         ingredients: A comma-separated string of ingredients (e.g., "chicken,broccoli,onion").
@@ -75,11 +75,10 @@ def get_recipe_information(recipe_ids: list[int]) -> list[dict]:
         
         # 3. Process the list of recipes returned by the bulk endpoint
         for data in recipes:
-            # Helper logic to safely extract Calories and Protein
+            # Helper logic to safely extract Calories
             nutrients = data.get('nutrition', {}).get('nutrients', [])
             
             cal = next((n['amount'] for n in nutrients if n['name'] == 'Calories'), 0)
-            prot = next((n['amount'] for n in nutrients if n['name'] == 'Protein'), 0)
 
             nutrition_data.append({
                 "title": data.get('title'),
